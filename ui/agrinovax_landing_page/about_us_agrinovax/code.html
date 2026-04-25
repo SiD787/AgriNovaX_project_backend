@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About - AgriNovaX</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#7b542b",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary-fixed": "#022100",
+                        "inverse-surface": "#2e312f",
+                        "surface-variant": "#e2e3df",
+                        "surface-bright": "#f9faf6",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#5b4137",
+                        "surface-container-high": "#e7e9e5",
+                        "on-primary-container": "#f8ffef",
+                        "inverse-on-surface": "#f0f1ed",
+                        "primary": "#3d6631",
+                        "on-secondary-container": "#795c51",
+                        "surface-dim": "#d9dad7",
+                        "secondary": "#75584d",
+                        "tertiary-container": "#966c41",
+                        "tertiary-fixed": "#ffdcbd",
+                        "primary-container": "#557f47",
+                        "on-surface-variant": "#42493f",
+                        "on-surface": "#1a1c1a",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#3f6833",
+                        "surface-container-highest": "#e2e3df",
+                        "surface-container": "#edeeea",
+                        "background": "#f9faf6",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#a4d393",
+                        "on-secondary-fixed": "#2b160f",
+                        "outline": "#72796e",
+                        "surface": "#f9faf6",
+                        "secondary-fixed-dim": "#e4beb2",
+                        "surface-container-low": "#f3f4f0",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#a4d393",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#f0bd8b",
+                        "secondary-container": "#fed7ca",
+                        "primary-fixed": "#c0f0ad",
+                        "on-tertiary-fixed-variant": "#623f18",
+                        "on-tertiary-fixed": "#2c1600",
+                        "on-background": "#1a1c1a",
+                        "secondary-fixed": "#ffdbce",
+                        "on-primary-fixed-variant": "#28501e",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c2c9bc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#f9faf6]/70 dark:bg-[#1a1c1a]/70 backdrop-blur-lg">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-inter tracking-tight font-medium">
+<div class="text-2xl font-bold tracking-tighter text-[#3d6631] dark:text-[#5e8d5a]">
+                AgriNovaX
+            </div>
+<div class="hidden md:flex space-x-8">
+<a class="text-[#42493f] dark:text-[#e2e3dc] hover:text-[#3d6631] transition-colors duration-200" href="#">Solutions</a>
+<a class="text-[#42493f] dark:text-[#e2e3dc] hover:text-[#3d6631] transition-colors duration-200" href="#">Features</a>
+<a class="text-[#42493f] dark:text-[#e2e3dc] hover:text-[#3d6631] transition-colors duration-200" href="#">Weather</a>
+<a class="text-[#3d6631] font-bold border-b-2 border-[#3d6631] pb-1" href="#">About</a>
+</div>
+<button class="bg-gradient-to-b from-primary to-primary-container text-on-primary px-6 py-2 rounded-lg font-medium scale-95 active:opacity-80 transition-all shadow-[0_12px_40px_rgba(26,28,26,0.06)]">
+                Get Started
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main>
+<!-- Hero Section: The Mission -->
+<section class="relative w-full max-w-7xl mx-auto px-6 pt-28 pb-24 md:pt-40 md:pb-32 flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 space-y-8 z-10">
+<span class="inline-block text-sm font-label text-secondary uppercase tracking-[0.2em] font-medium">Our Mission</span>
+<h1 class="font-headline text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-on-surface leading-[1.1]">
+                    Bridging the gap between <span class="text-primary">traditional wisdom</span> and modern technology.
+                </h1>
+<p class="font-body text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-2xl">
+                    We believe the future of Indian agriculture lies in honoring generations of knowledge while empowering farmers with precision tools. It's not about replacing the farmer; it's about giving them an editorial view of their land.
+                </p>
+<div class="pt-4">
+<button class="bg-gradient-to-b from-primary to-primary-container text-on-primary px-8 py-4 rounded-lg font-medium shadow-[0_12px_40px_rgba(26,28,26,0.06)] hover:opacity-90 transition-opacity flex items-center gap-3">
+                        Join the Movement
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Asymmetric Editorial Image -->
+<div class="flex-1 w-full relative h-[500px] lg:h-[700px] rounded-[2rem] overflow-hidden shadow-[0_12px_40px_rgba(26,28,26,0.06)]">
+<img alt="Editorial close up of a farmer's weathered hands holding rich dark loamy soil with a tiny green sprout emerging, warm golden hour lighting" class="w-full h-full object-cover object-center absolute inset-0" data-alt="Editorial close up of a farmer's weathered hands holding rich dark loamy soil with a tiny green sprout emerging, warm golden hour lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWj8f6Y6d9FAe-4zfpSJveaa6Rp68VIsYIPIffub-t1CfzIDhwxAZQfxJs94ssVY7F0Pie-VsuYNGKREuCk6y5UTMJsRx2ajeag86rv5DK37qOM6pFx7Uvi0PX-5YOCj9eusmjhbvnk6tltYZjP6skBPNS3Id30RWF-Vi_z9A_oU_jggjabPDNjWRI6Hf4Ql4i2tUZjp0pliQaCdiwcCiBJGGNbUqQWTNwGainwFCKsNoNcoh5WzUEx3B8vpeVNolbZxUrO0mbiVM"/>
+</div>
+</section>
+<!-- The Story Section: Tonal Shift -->
+<section class="w-full bg-surface-container-low py-24 md:py-32">
+<div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
+<div class="flex-1 space-y-6">
+<h2 class="font-headline text-4xl md:text-5xl font-semibold tracking-tight text-on-surface">The Story</h2>
+<p class="font-body text-lg text-on-surface-variant leading-[1.7]">
+                        AgriNovaX was born from a simple observation in the heartlands of Punjab: the tools defining modern agriculture were built for vast, corporate farms, ignoring the nuanced, diverse plots managed by millions of Indian farmers.
+                    </p>
+<p class="font-body text-lg text-on-surface-variant leading-[1.7]">
+                        We spent two years living among rural farming communities, translating their profound intuitive understanding of soil health and seasonal shifts into a digital ecosystem. Our platform is designed to be as natural to use as a ledger, yet powerful enough to predict micro-climate changes.
+                    </p>
+<div class="mt-8 pt-8 border-t border-outline-variant/20 flex gap-12">
+<div>
+<span class="block text-4xl font-headline font-light text-secondary mb-2">2021</span>
+<span class="text-sm font-label text-on-surface-variant">Year Founded</span>
+</div>
+<div>
+<span class="block text-4xl font-headline font-light text-secondary mb-2">100+</span>
+<span class="text-sm font-label text-on-surface-variant">Villages Visited</span>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full aspect-[4/5] rounded-[2rem] overflow-hidden relative">
+<img alt="Wide cinematic shot of vibrant green Indian rice paddies stretching to the horizon under a clear blue sky, traditional framing with modern scale" class="w-full h-full object-cover object-center absolute inset-0" data-alt="Wide cinematic shot of vibrant green Indian rice paddies stretching to the horizon under a clear blue sky, traditional framing with modern scale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJKG3U_rDEAdEtW_NFhXLtHoBYKjpbxeU2gKi4QnJon1ywj0k3QoBYosAhtUeIBsL9KiAAnvk1HBd6CwYA6dOYBsDhdhOOVykbBXV3drfm16AVYihIcpj6CpvhT7FJk9TD0Agfa9c4idw-aeI2yrCkVoGf9NTB-xT8scAla014T_V9U_57tkTT-P9v1v-lzWMZ8VR9Kapic5N8ylZHqNq-MBvsQCRvNFeF5RZnyw9C4iuFpj66ZWaqSKnaqpCzyfmDJR8rdj0ouWo"/>
+</div>
+</div>
+</section>
+<!-- Our Vision Section -->
+<section class="w-full bg-surface py-24 md:py-32">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<h2 class="font-headline text-4xl md:text-5xl font-semibold tracking-tight text-on-surface mb-6">Our Vision</h2>
+<p class="font-body text-xl text-on-surface-variant leading-relaxed">
+                        Prosperity through precision. We are building an ecosystem where every seed planted is backed by data, and every harvest is optimized for sustainability.
+                    </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container rounded-2xl p-10 flex flex-col h-full border border-outline-variant/10">
+<div class="w-14 h-14 rounded-full bg-primary-container/20 flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="eco">eco</span>
+</div>
+<h3 class="font-headline text-2xl font-medium text-on-surface mb-4">Sustainable Yields</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mt-auto">
+                            Equipping farmers with insights to reduce water consumption and chemical inputs while maximizing crop health naturally.
+                        </p>
+</div>
+<!-- Card 2 (Elevated visually) -->
+<div class="bg-surface-container-lowest rounded-2xl p-10 flex flex-col h-full shadow-[0_12px_40px_rgba(26,28,26,0.06)] md:-mt-4 md:mb-4 relative z-10 border border-outline-variant/10">
+<div class="w-14 h-14 rounded-full bg-secondary-container/30 flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="insights">insights</span>
+</div>
+<h3 class="font-headline text-2xl font-medium text-on-surface mb-4">Data Democracy</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mt-auto">
+                            Transforming complex satellite and IoT data into simple, actionable daily narratives for communities without technical backgrounds.
+                        </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container rounded-2xl p-10 flex flex-col h-full border border-outline-variant/10">
+<div class="w-14 h-14 rounded-full bg-tertiary-container/20 flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="group">group</span>
+</div>
+<h3 class="font-headline text-2xl font-medium text-on-surface mb-4">Community Trust</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mt-auto">
+                            Building a network where traditional knowledge is shared, verified by modern metrics, and passed on to the next generation.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Section (Hero Numbers) -->
+<section class="w-full relative py-32 bg-surface-container-highest overflow-hidden">
+<!-- Subtle background texture/image overlay using glassmorphism concept -->
+<div class="absolute inset-0 z-0 opacity-20 mix-blend-multiply">
+<img alt="Abstract top-down aerial view of ploughed geometric farming fields with rich brown earth tones" class="w-full h-full object-cover" data-alt="Abstract top-down aerial view of ploughed geometric farming fields with rich brown earth tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM7KZ3rLavYCJadxa4K5xL1tSkgO01NqO0YCznhM-WYlvPDuUWcUgLsp9reO8hFtjVDLdzuXca5Sm7EDt2lc8DaLUpsp2eGuoVR4PnvBC81kfPARo1TG64ZsHbDFmZKqija_6jNIqjZ5ghs9OhS-8lZK71LBhuOcKbu66F1j2DGxFb2vlAZH00Ro6-mF_2wSSo8B9Y53H3GwIjth3jg7P8KhpUAn4dHeeGlD4qwGaqsHKXRDFOJAPM9Iz2Qntlz3WcYMDVqzFTlWQ"/>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+<div>
+<div class="text-7xl lg:text-8xl font-headline font-light text-primary mb-4 tracking-tighter">45k<span class="text-4xl">+</span></div>
+<div class="font-body text-lg font-medium text-on-surface">Farmers Empowered</div>
+<p class="text-sm text-on-surface-variant mt-2 max-w-xs mx-auto">Active daily users leveraging our insights across the subcontinent.</p>
+</div>
+<div>
+<div class="text-7xl lg:text-8xl font-headline font-light text-secondary mb-4 tracking-tighter">12</div>
+<div class="font-body text-lg font-medium text-on-surface">Regions Covered</div>
+<p class="text-sm text-on-surface-variant mt-2 max-w-xs mx-auto">From the northern plains to the southern deltas, localized for diverse climates.</p>
+</div>
+<div>
+<div class="text-7xl lg:text-8xl font-headline font-light text-tertiary mb-4 tracking-tighter">1.2M</div>
+<div class="font-body text-lg font-medium text-on-surface">Acres Monitored</div>
+<p class="text-sm text-on-surface-variant mt-2 max-w-xs mx-auto">Total land area mapped, analyzed, and optimized for sustainable growth.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-[#e7e9e5]/30 bg-[#f3f4f0]">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6 text-sm leading-relaxed font-normal">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-lg font-bold text-[#3d6631]">AgriNovaX</span>
+<p class="text-[#42493f] text-center md:text-left">© 2024 AgriNovaX. Empowering Indian Agriculture.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-8">
+<a class="text-[#42493f] hover:text-[#3d6631] transition-colors ease-in-out" href="#">Privacy Policy</a>
+<a class="text-[#42493f] hover:text-[#3d6631] transition-colors ease-in-out" href="#">Terms of Service</a>
+<a class="text-[#42493f] hover:text-[#3d6631] transition-colors ease-in-out" href="#">Support</a>
+<a class="text-[#42493f] hover:text-[#3d6631] transition-colors ease-in-out" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>
