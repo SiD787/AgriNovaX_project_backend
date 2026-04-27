@@ -1,6 +1,8 @@
+import os
+
 def append_crop_data():
-    file_path = "crop_data.py"
-    with open(file_path, "a") as f:
+    file_path = os.path.join('..', 'api', 'crop_data.py')
+    with open(file_path, "a", encoding="utf-8") as f:
         f.write("""
 # --- NEW VEGETABLE CROPS ADDED FOR EXTENDED DATASET ---
 CROP_REQUIREMENTS.update({

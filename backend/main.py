@@ -1,5 +1,6 @@
 """
 AgriNovaX API - FastAPI backend for crop recommendation system.
+Entry point: python backend/main.py
 """
 
 from fastapi import FastAPI, HTTPException
@@ -7,6 +8,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Optional
 import os
+import sys
+
+# Add the backend directory to the Python path for local imports
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from prediction_engine import PredictionEngine
 from logic_layer import (
@@ -25,14 +30,14 @@ from crop_data import CROP_DISPLAY_NAMES, MULTI_CROPPING
 from chat_engine import chat as chat_with_ai
 
 # Initialize FastAPI
-app = FastAPI(
+_app = FastAPI(
     title="AgriNovaX API",
     description="AI-powered agricultural advisory system for Indian farmers",
     version="1.0.0",
 )
 
 # CORS middleware
-app.add_middleware(
+_app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
@@ -40,18 +45,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load ML model
+# Load ML model (lazy-loaded for serverless cold starts)
 prediction_engine = None
 
-@app.on_event("startup")
-async def startup():
+def get_prediction_engine():
     global prediction_engine
-    try:
-        prediction_engine = PredictionEngine()
-        print("[OK] ML Model loaded successfully")
-    except Exception as e:
-        print(f"[WARN] Model not loaded: {e}")
-        print("   Run 'python train_model.py' first to train the model.")
+    if prediction_engine is None:
+        try:
+            prediction_engine = PredictionEngine()
+            print("[OK] ML Model loaded successfully")
+        except Exception as e:
+            print(f"[WARN] Model not loaded: {e}")
+            print("   Run 'python backend/train_model.py' first to train the model.")
+    return prediction_engine
 
 
 # Request/Response models
@@ -71,29 +77,40 @@ class PredictRequest(BaseModel):
     conductivity: Optional[float] = Field(None, description="Soil conductivity (dS/m)") 
 
 
-@app.get("/health")
+@_app.get("/")
+async def root():
+    return {
+        "message": "AgriNovaX API is running! 🚀",
+        "frontend_url": "http://localhost:5173",
+        "docs_url": "http://localhost:8000/docs"
+    }
+
+
+@_app.get("/health")
 async def health_check():
+    engine = get_prediction_engine()
     return {
         "status": "healthy",
-        "model_loaded": prediction_engine is not None,
+        "model_loaded": engine is not None,
         "version": "1.0.0"
     }
 
 
-@app.get("/languages")
+@_app.get("/languages")
 async def languages():
     return {"languages": get_supported_languages()}
 
 
-@app.post("/predict")
+@_app.post("/predict")
 async def predict(request: PredictRequest):
     """Main prediction endpoint - returns full crop advisory."""
     
-    if prediction_engine is None:
+    engine = get_prediction_engine()
+    if engine is None:
         raise HTTPException(status_code=503, detail="Model not loaded. Run train_model.py first.")
     
     # 1. ML Prediction
-    prediction = prediction_engine.predict(
+    prediction = engine.predict(
         N=request.N,
         P=request.P,
         K=request.K,
@@ -200,7 +217,7 @@ async def predict(request: PredictRequest):
     return response
 
 
-@app.get("/weather/{location}")
+@_app.get("/weather/{location}")
 async def weather(location: str):
     """Standalone weather endpoint."""
     geo = await geocode_location(location)
@@ -214,7 +231,7 @@ class ChatRequest(BaseModel):
     language: str = Field("en", description="Language code (en, hi, mr)")
 
 
-@app.post("/chat")
+@_app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
     """Conversational AI assistant for farming Q&A."""
     result = chat_with_ai(
@@ -224,6 +241,27 @@ async def chat_endpoint(request: ChatRequest):
     return result
 
 
+# ── Vercel ASGI Middleware ──────────────────────────────────
+# Vercel rewrites /api/health → backend/main.py but the ASGI path
+# remains /api/health. This middleware strips the /api prefix so
+# FastAPI's routes (registered as /health, /predict, etc.) match.
+class _StripApiPrefix:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] in ("http", "websocket"):
+            path = scope.get("path", "")
+            if path.startswith("/api"):
+                scope["path"] = path[4:] or "/"
+        await self.app(scope, receive, send)
+
+# Export the wrapped app — Vercel picks up the `app` variable
+app = _StripApiPrefix(_app)
+
+
+# ── Local Development ──────────────────────────────────────
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    print("[AgriNovaX] Starting API on http://localhost:8000")
+    uvicorn.run(_app, host="0.0.0.0", port=8000, reload=False)

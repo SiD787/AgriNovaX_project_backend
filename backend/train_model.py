@@ -1,6 +1,6 @@
 """
 Model Training Script - Trains a Random Forest classifier on the crop recommendation dataset.
-Run: python train_model.py
+Run: python backend/train_model.py (from project root)
 """
 
 import os
@@ -39,10 +39,11 @@ def clean_dataset(df):
 def train_model():
     """Train the crop recommendation model."""
     # Create models directory
-    os.makedirs('models', exist_ok=True)
+    models_dir = os.path.join(os.path.dirname(__file__), 'models')
+    os.makedirs(models_dir, exist_ok=True)
     
     # Load dataset
-    data_path = os.path.join('data', 'dataset.csv')
+    data_path = os.path.join(os.path.dirname(__file__), 'data', 'dataset.csv')
     print(f"Loading dataset from {data_path}...")
     df = pd.read_csv(data_path)
     print(f"Raw dataset shape: {df.shape}")
@@ -108,15 +109,15 @@ def train_model():
         print(f"  {feat:15s}: {imp:.4f}")
     
     # Save model, scaler, and label encoder
-    joblib.dump(model, os.path.join('models', 'crop_model.joblib'))
-    joblib.dump(scaler, os.path.join('models', 'scaler.joblib'))
-    joblib.dump(label_encoder, os.path.join('models', 'label_encoder.joblib'))
-    joblib.dump(features, os.path.join('models', 'features.joblib'))
+    joblib.dump(model, os.path.join(models_dir, 'crop_model.joblib'))
+    joblib.dump(scaler, os.path.join(models_dir, 'scaler.joblib'))
+    joblib.dump(label_encoder, os.path.join(models_dir, 'label_encoder.joblib'))
+    joblib.dump(features, os.path.join(models_dir, 'features.joblib'))
     
-    print(f"\nModel saved to models/crop_model.joblib")
-    print(f"Scaler saved to models/scaler.joblib")
-    print(f"Label encoder saved to models/label_encoder.joblib")
-    print(f"Features list saved to models/features.joblib")
+    print(f"\nModel saved to {models_dir}/crop_model.joblib")
+    print(f"Scaler saved to {models_dir}/scaler.joblib")
+    print(f"Label encoder saved to {models_dir}/label_encoder.joblib")
+    print(f"Features list saved to {models_dir}/features.joblib")
     
     return model, scaler, label_encoder
 

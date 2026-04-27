@@ -1,12 +1,14 @@
 {
-  "name": "stitch_agrinovax_smart_farming_dashboard",
+  "name": "agrinovax",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "AgriNovaX - AI-Powered Smart Farming Platform",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "frontend:install": "cd frontend && npm install",
+    "backend:dev": "python backend/main.py"
   },
-  "keywords": [],
+  "keywords": ["agriculture", "ai", "farming"],
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }
