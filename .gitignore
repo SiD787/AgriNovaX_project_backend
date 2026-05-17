@@ -1,24 +1,19 @@
-# Python
+# Dependencies
+node_modules/
+.venv/
 __pycache__/
-*.py[cod]
-*.egg-info/
+*.pyc
+
+# Environment
 .env
 
-# Node
-node_modules/
-dist/
-*.local
+# ML Models (too large for git, trained during build)
+backend/api/models/*.joblib
 
-# Logs
-*.log
-npm-debug.log*
+# OS files
+.DS_Store
+Thumbs.db
 
 # IDE
 .vscode/
 .idea/
-*.suo
-*.sw?
-.DS_Store
-
-# OS
-Thumbs.db
